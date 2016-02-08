@@ -1,5 +1,11 @@
 *.TODO
 *.log
 npm-debug.log*
-server/node_modules/
 .npm
+
+//game server
+server/node_modules/
+
+
+//web server + client
+web-server/node_modules/
