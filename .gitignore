@@ -9,3 +9,4 @@ server/node_modules/
 
 //web server + client
 web-server/node_modules/
+web-server/public/bower_components/
