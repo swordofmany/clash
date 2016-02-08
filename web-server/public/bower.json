@@ -1,0 +1,24 @@
+{
+  "name": "clash client",
+  "homepage": "https://github.com/swordofmany/clash",
+  "authors": [
+    "Daniel Huly <danny.huly@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "https://github.com/socketio/socket.io-client.git#^1.4.5",
+    "jquery": "^2.2.0",
+    "html5shiv": "^3.7.3"
+  }
+}
