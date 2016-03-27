@@ -17,8 +17,9 @@
     "tests"
   ],
   "dependencies": {
-    "socket.io-client": "https://github.com/socketio/socket.io-client.git#^1.4.5",
+    "html5shiv": "^3.7.3",
     "jquery": "^2.2.0",
-    "html5shiv": "^3.7.3"
+    "moment": "~2.12.0",
+    "socket.io-client": "https://github.com/socketio/socket.io-client.git#^1.4.5"
   }
 }

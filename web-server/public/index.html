@@ -1,59 +1,37 @@
 <!doctype html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        
-        <title>Clash - client 1.0.0</title>
-        <meta name="description" content="Clash - client 1.0.0">
-        
-        <!--[if lt IE 9]>
+<head>
+    <meta charset="utf-8">
+
+    <title>Clash - client 1.0.0</title>
+    <meta name="description" content="Clash - client 1.0.0">
+
+    <!--[if lt IE 9]>
         <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
-        <![endif]-->
-        
-    </head>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="gameConsole"></div>
+
+    <!-- vendor -->
+    <script src="/bower_components/socket.io-client/socket.io.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+
+    <!-- app -->
+    <script src="/app.js"></script>
     
-    <body>
-    
-      <div class="state">Connection to game server...</div>
-    
-      <script src="bower_components/socket.io-client/socket.io.js"></script>
-      <script src="bower_components/jquery/dist/jquery.min.js"></script>
-      
-      
-      <script>
-        
-        $(function(){
-            connect(":3000");
+    <script>     
+        $(function () {
+            app.run();
         })
-        
-        function connect(gameServerHost){
-            
-            var socket = io(gameServerHost); //connect to server
-            
-            //request to join
-            socket.emit('hello');
-            
-            //on joining
-            socket.on('welcome', function(msg){
-                console.log("welcome: ", msg);
-            });
-              
-            socket.on('disconnect', function(){
-                alert("disconnect");
-            });
-            
-            socket.on("connect_error", function(){
-                socket.disconnect();
-                var errMsg = "Unavilable to connect to game server";
-                console.error(errMsg);
-                $(".state").text(errMsg);
-            })
-            
-        }
-        
-      </script>
-      
-    </body>
-    
+    </script>
+
+
+</body>
+
 </html>
