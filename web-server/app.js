@@ -4,7 +4,7 @@ var app     = express();
 var server  = require('http').createServer(app);
 
 // Can be supplied via env vars
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 8080;
 
 server.listen(port, function () {
   console.log('Web server listening at port %d', port);
