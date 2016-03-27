@@ -1,6 +1,6 @@
 var conf = {
     gameServerHost: ":3000",
-    gameConsoleSelector: ".gameConsole"
+    gameConsoleSelector: ".game-console"
 }
 
 var app = (function (conf, $, io, moment) {
@@ -30,8 +30,9 @@ var app = (function (conf, $, io, moment) {
             
         //on joining
         socket.on('welcome', function (msg) {
-            console.log("welcome: ", msg);
-            app.writeToGameConsole("Connected !", "You are on team \"" + msg.team + "\"");
+
+            app.writeToGameConsole("Connected !", "You are on team \"" + msg.team + "\"");   
+            
         });
 
         socket.on('disconnect', function () {
@@ -56,7 +57,7 @@ var app = (function (conf, $, io, moment) {
                 
         var msg = "<div>" + args.join(" | ") + "</div>";
 
-        gameConsoleElement.append(msg);
+        gameConsoleElement.prepend(msg);
     }
 
 

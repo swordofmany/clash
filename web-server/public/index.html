@@ -8,21 +8,25 @@
     <meta name="description" content="Clash - client 1.0.0">
 
     <!--[if lt IE 9]>
-        <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="/bower_components/html5shiv/dist/html5shiv.min.js"></script>
     <![endif]-->
+    
+    <!-- app css -->
+    <link href="/style/app.css" rel="stylesheet">
 
 </head>
 
 <body>
+    
+    <canvas class="game-canvas" width="500" height="300"></canvas>
+    <div class="game-console"></div>
 
-    <div class="gameConsole"></div>
-
-    <!-- vendor -->
+    <!-- vendor js -->
     <script src="/bower_components/socket.io-client/socket.io.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/moment/moment.js"></script>
 
-    <!-- app -->
+    <!-- app js -->
     <script src="/app.js"></script>
     
     <script>     
