@@ -1,9 +1,10 @@
 var conf = {
     gameServerHost: ":3000",
+    gameCanvasSelector: ".game-canvas",
     gameConsoleSelector: ".game-console"
 }
 
-var app = (function (conf, $, io, moment) {
+var app = (function (conf, $, io, moment, createjs) {
 
     var app = {}; //declare module
     
@@ -32,6 +33,35 @@ var app = (function (conf, $, io, moment) {
         socket.on('welcome', function (msg) {
 
             app.writeToGameConsole("Connected !", "You are on team \"" + msg.team + "\"");   
+            
+            var color = msg.team == "blue" ? "blue" : "red";
+            
+            
+            
+            //******************** game logic ********************
+            var gameCanvasDomElement = $(conf.gameCanvasSelector).get(0);
+            var stage = new createjs.Stage(gameCanvasDomElement);
+
+            var rect = new createjs.Shape();
+            rect.graphics.beginFill(color).drawRect(0, 0, 50, 50);
+            rect.x = 100;
+            rect.y = 100;
+            stage.addChild(rect);
+
+
+
+            createjs.Ticker.addEventListener("tick", handleTick);
+            
+            function handleTick() {
+                //Circle will move 10 units to the right.
+                rect.x += 10;
+                //Will cause the circle to wrap back
+                if (rect.x > stage.canvas.width) { rect.x = 0; }
+                stage.update();
+            }
+            
+            
+            //***************** END - game logic *****************
             
         });
 
@@ -65,4 +95,4 @@ var app = (function (conf, $, io, moment) {
     app.onLoad();
     return app;
 
-} (conf, jQuery, io, moment));
+} (conf, jQuery, io, moment, createjs));
